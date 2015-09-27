@@ -23,6 +23,9 @@ The record of the other 66 variable was provided by:
 - 3-axial signals in the  X,Y and Z directions
 - Mean and standard deviation of each activities 
 
+The unit of measurement for Accelerometer is X axis is the standard gravity "g".
+The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
+
 ## Data Transformation
 The following  variable names pattern were matched as follows:
 * ^t = time
