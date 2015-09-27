@@ -37,7 +37,7 @@ dim(FeaturesTest)
 
 str(FeaturesTrain)
 
-## Merging data
+## Merging the training and the test sets to create one data set.
 ## Concatenate the data tables by rows
 
 Subjects <- rbind(SubjectTrain, SubjectTest)
@@ -50,6 +50,9 @@ Features<- rbind(FeaturesTrain, FeaturesTest)
 names(Subjects)<-c("subject")
 names(Activity)<- c("activity")
 
+
+##Extracts only the measurements on the mean and standard deviation for each measurement
+
 ## Reading the Feature.txt file to obtain variable names
 
 FeaturesNames <- read.table("./data/datset/UCI HAR DATASET/features.txt",head=FALSE)
@@ -60,31 +63,27 @@ names(Features)<- FeaturesNames$V2
 allCombine <- cbind(Subjects, Activity)
 FullDat <- cbind(Features, allCombine)
 
-
-## Subset Name of Features by measurements on the mean and standard deviation
 ## i.e taken Names of Features with "mean()" or "std()"
+## Subset Name of Features by measurements on the mean and standard deviation
 
 subsetFeaturesNames<-FeaturesNames$V2[grep("mean\\(\\)|std\\(\\)", FeaturesNames$V2)]
 
+## Appropriately labelling the data set with descriptive variable names
 
-##2.Subset the data frame Data by seleted names of Features
+## Subsetting the data frame Data by seleted names of Features
 
 selectedNames<-c(as.character(subsetFeaturesNames), "subject", "activity" )
 Dat<-subset(FullDat,select=selectedNames)
-
-
-## Using descriptive activity names to name the activities in the data set
 
 ## Reading descriptive activity names from "activity_labels.txt"
 
 activityLabels <- read.table("./data/datset/UCI HAR DATASET/activity_labels.txt",header = FALSE)
 activity_labels<-read.table("./data/datset/UCI HAR DATASET/activity_labels.txt")["V2"]
 
-## facorize Variale activity in the data frame Data using descriptive activity names
+## Using descriptive activity names to name the activities in the data set
+## facorize Variable activity in the data frame Data using descriptive activity names
 
 Dat$activity <- factor(Dat$activity,levels = activityLabels$V1, labels = activityLabels$V2)
-
-
 
 
 ##.check
@@ -122,5 +121,4 @@ names(Data)
 str(Data)
 all(colSums(is.na(Data)) == 0)
 
-library(knitr)
-knit2html("codebook.Rmd")
+

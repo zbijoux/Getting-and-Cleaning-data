@@ -5,11 +5,11 @@ date: "September 26, 2015"
 output: html_document
 ---
 ## Raw Data
-The raw data was obtain from Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors. The raw dataset was randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.The variable description can  be seen here 
+The raw data was obtain from Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors. The raw data set was randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.The variable description can  be seen here 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 ## Process Data
-The process data tidydata contain 180 observations, 68 variables and 30 subjects. Each person had to execute six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. These activities were measured using accelerometer and gyroscope which captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The set of variables were estimated using the mean and standard deviation.Finally the data was summarized by averaging each variable with respect to the subject and activities. The characteristic of the tidydata is a multivariate dataset of a repeated measurement.
+The process data tidy data contain 180 observations, 68 variables and 30 subjects. Each person had to execute six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. These activities were measured using accelerometer and gyroscope which captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The set of variables were estimated using the mean and standard deviation.Finally the data was summarized by averaging each variable with respect to the subject and activities. The characteristic of the tidy data is a multivariate data set of a repeated measurement.
 
 ## Variable Description
 Subject: An identifier of the subject that performed the activities of the experiment
@@ -23,9 +23,19 @@ The record of the other 66 variable was provided by:
 - 3-axial signals in the  X,Y and Z directions
 - Mean and standard deviation of each activities 
 
-The Variables of the tidydata are listed below:
+## Data Transformation
+The following  variable names pattern were matched as follows:
+* ^t = time
+* ^f = frequency
+* Acc = Accelerometer
+* Gyro = Gyroscope 
+* Mag = Magnitude 
+* BodyBody = Body 
 
-```{r eval=TRUE}
+
+The Variables of the tidy data are listed below:
+
+```{r}
 names(Data)
 ```
  
@@ -47,7 +57,7 @@ The files use to process the raw data:
 ## Putting related files together
 - Subject: test/subject_test.txt and train/subject_train.txt
 - Activity: test/Y_test.txt and train/Y_train.txt
-- Mearsurement(Features): test/X_test.txt and train/X_train.txt
+- Measurement(Features): test/X_test.txt and train/X_train.txt
 - Names of variables: feature.txt
 - Labels of activity: activity_labels.txt
 
@@ -59,7 +69,7 @@ The files use to process the raw data:
 5. An independent tidy data set with the average of each variable for each activity and each subject was created from step 4.
  
 ## Checking the data  
-```{r eval=TRUE}
+```{r}
 head(Data[,1:4], 12)
 dim(Data)
 all(colSums(is.na(Data)) == 0)
