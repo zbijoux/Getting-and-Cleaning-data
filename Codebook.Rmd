@@ -1,0 +1,68 @@
+---
+title: "Codebook.md"
+author: "zbijoux"
+date: "September 26, 2015"
+output: html_document
+---
+## Raw Data
+The raw data was obtain from Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors. The raw dataset was randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.The variable description can  be seen here 
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+## Process Data
+The process data tidydata contain 180 observations, 68 variables and 30 subjects. Each person had to execute six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. These activities were measured using accelerometer and gyroscope which captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The set of variables were estimated using the mean and standard deviation.Finally the data was summarized by averaging each variable with respect to the subject and activities. The characteristic of the tidydata is a multivariate dataset of a repeated measurement.
+
+## Variable Description
+Subject: An identifier of the subject that performed the activities of the experiment
+Activity:  WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+
+The record of the other 66 variable was provided by:
+- Triaxial acceleration from the accelerometer and the estimated body acceleration.
+- Triaxial Angular velocity from the gyroscope.
+- Time or frequency domain signal.
+- Jerk signal
+- 3-axial signals in the  X,Y and Z directions
+- Mean and standard deviation of each activities 
+
+The Variables of the tidydata are listed below:
+
+```{r eval=TRUE}
+names(Data)
+```
+ 
+## Getting the data
+There were 8 data was obtained from 
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+ 
+The files use to process the raw data:
+- test/subject_test.txt
+- test/X_test.txt
+- test/y_test.txt
+- train/subject_train.txt
+- train/X_train.txt
+- train/y_train.txt
+- activity_labels.txt                        
+- features.txt                                
+- README.txt 
+ 
+## Putting related files together
+- Subject: test/subject_test.txt and train/subject_train.txt
+- Activity: test/Y_test.txt and train/Y_train.txt
+- Mearsurement(Features): test/X_test.txt and train/X_train.txt
+- Names of variables: feature.txt
+- Labels of activity: activity_labels.txt
+
+## Data manipulation steps
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement.
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names.
+5. An independent tidy data set with the average of each variable for each activity and each subject was created from step 4.
+ 
+## Checking the data  
+```{r eval=TRUE}
+head(Data[,1:4], 12)
+dim(Data)
+all(colSums(is.na(Data)) == 0)
+```
+
+

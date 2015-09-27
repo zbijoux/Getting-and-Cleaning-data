@@ -1,0 +1,28 @@
+---
+title: "README"
+author: "zbijoux"
+date: "September 26, 2015"
+output: html_document
+---
+# Getting and Cleaning Data
+
+## Introduction
+The goal of this project was to prepare a tidy data that can be used for later analysis by demonstrate our ability to collect, work with and clean a data set. 
+
+## Raw Data
+The raw data was obtain from Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors. The raw dataset was randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. The dataset was multivariate with 10299 number instances and 561 attributes.
+
+## R_scipts(run_analysis)
+The r_scripts contains the following:
+1. creating a directory
+2. Downloading and extract the data 
+3. Reading the data sets
+4. Data manipulation
+5. matching the right names to the variables
+6. Creating the tidy data sets
+
+## Process Data
+The data was summarized by averaging each variable with respect to the subject and activities. The characteristic of the tidydata is a multivariate dataset of a repeated measurement.The process data tidydata contain 180 observations, 68 variables and 30 subjects. Each person had to execute six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist.
+ 
+## Code Book
+The code book describe the variables and the transformations performed to clean the raw data.
