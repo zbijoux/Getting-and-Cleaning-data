@@ -14,11 +14,12 @@ The raw data was obtain from Human Activity Recognition database built from the 
 
 ## R_scipts(run_analysis)
 The r_scripts contains the following:
+
 1. creating a directory
 2. Downloading and extract the data 
 3. Reading the data sets
 4. Data manipulation
-5. matching the right names to the variables
+5. Matching the right names to the variables
 6. Creating the tidy data sets
 
 ## Process Data

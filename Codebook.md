@@ -23,6 +23,16 @@ The record of the other 66 variable was provided by:
 - 3-axial signals in the  X,Y and Z directions
 - Mean and standard deviation of each activities 
 
+## Data Transformation
+The following  variable names pattern were matched as follows:
+* ^t = time
+* ^f = frequency
+* Acc = Accelerometer
+* Gyro = Gyroscope 
+* Mag = Magnitude 
+* BodyBody = Body 
+
+
 The Variables of the tidydata are listed below:
 
 
